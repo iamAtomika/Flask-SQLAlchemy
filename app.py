@@ -41,11 +41,13 @@ def home_inst():
 #API Endpoints 
 
 #route `/students` that responds to GET requests
+## http://127.0.0.1:8000/students
 @app.route('/students', methods=['GET'])
 def get_students():
     return jsonify(students)
 
 ##students older than 20
+## http://127.0.0.1:8000/get_old_students
 @app.route('/old_students', methods=['GET'])
 def get_old_students():
     old_students = []
@@ -55,6 +57,7 @@ def get_old_students():
     return jsonify(old_students)
 
 ##students younger than 21
+## http://127.0.0.1:8000/get_young_students
 @app.route('/young_students', methods=['GET'])
 def get_young_students():
     young_students = []
@@ -64,6 +67,7 @@ def get_young_students():
     return jsonify(young_students)
 
 ##student younger than 21 and have a letter grade of "A."
+## http://127.0.0.1:8000/get_advance_students
 @app.route('/advance_students', methods=['GET'])
 def get_advance_students():
     advance_students = []
@@ -73,6 +77,7 @@ def get_advance_students():
     return jsonify(advance_students)
 
 ##student keys of 'first_name' and 'last_name' along with their corresponding values.
+## http://127.0.0.1:8000/get_student_names
 @app.route('/student_names', methods=['GET'])
 def get_student_names():
     student_names = []
@@ -81,6 +86,7 @@ def get_student_names():
     return jsonify(student_names)
 
 ##student keys 'student_name' with the value of first and last name, and 'age' with the value of that student's age.
+## http://127.0.0.1:8000/get_student_ages
 @app.route('/student_ages', methods=['GET'])
 def get_student_ages():
     student_ages = []
