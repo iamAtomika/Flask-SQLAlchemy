@@ -1,0 +1,41 @@
+#FLASK
+
+Flask is a powerful web framework for Python that works well with databases.
+
+###INSTALL
+pip install Flask
+
+###within Python
+Note: MIGHT NOT BE RECOGNIZED BY PYLANCE BUT IT STILL WORKS
+
+from flask import Flask, jsonify
+
+
+Explanation:
+** Flask(__name__): This creates a Flask application object. The __name__ argument tells Flask the name of the current module. In Python, when you run a script, the script's namespace is set to __main__, and when a module is imported, it's set to the name of the module. By passing __name__, Flask knows where to find templates, static files, and other resources relative to the application.
+
+#EXAMPLE Flask application initializing the `app` object.
+app = Flask(__name__)
+
+
+** We define a list of student dictionaries to serve as our data source.
+
+#EXAMPLE using csv file
+students = load_data('code-platoon-lessons/python-servers/flask_lesson/students.csv')
+
+
+** The get_students function returns the list of students as JSON using jsonify.
+
+#EXAMPLE route `/students` that responds to GET requests
+@app.route('/students', methods=['GET'])
+def get_students():
+    return jsonify(students)
+
+
+** Finally, we start the Flask app with app.run(debug=True) for debugging purposes.
+
+To run the server, save this script to a .py file (e.g., app.py) and execute it. The server will be available at http://localhost:5000/students. You can send GET requests to this URL to retrieve the student data.
+
+#EXAMPLE Server run
+if __name__ == '__main__':
+    app.run(debug=True, port=8000) #USING PORT 8000
