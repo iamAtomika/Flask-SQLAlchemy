@@ -49,8 +49,8 @@ app = Flask(__name__)
 # 'postgresql+psycopg://username:password@localhost:5432/database_name'
 ## CHECK FOR PORT NUMBER using error
 ## 'postgresql+psycopg://username:password@localhost/students'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql+psycopg://username:password@localhost/students'
-#app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql+psycopg://atomika:saturno404@localhost/school_testing'
+# app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 
 db.init_app(app) # Initialize db with Flask app
@@ -63,10 +63,12 @@ db.init_app(app) # Initialize db with Flask app
 
 #route `/students` that responds to GET requests
 ## http://127.0.0.1:8000/students
-@app.route('/students')
+@app.route('/students', methods=['GET'])
 def get_students():
     students = Student.query.all()
+    print(f"Queried students: {students}")  # Debugging
     student_list = [student.to_dict() for student in students]
+    print(f"Student list: {student_list}")  # Debugging
     return jsonify(student_list)
 
 
