@@ -39,3 +39,12 @@ To run the server, save this script to a .py file (e.g., app.py) and execute it.
 #EXAMPLE Server run
 if __name__ == '__main__':
     app.run(debug=True, port=8000) #USING PORT 8000
+
+
+
+### INSTALL Flask-SQLAlchemy
+pip install Flask-SQLAlchemy
+
+
+### INSTALL Psycopg (WSL)
+pip install psycopg[binary]
